@@ -1,0 +1,174 @@
+/* --- Variables et Reset --- */
+:root {
+    --vert-principal: #2e7d32;
+    --vert-hover: #1b5e20;
+    --blanc: #ffffff;
+    --fond-gris: #f8f9fa;
+    --texte-sombre: #2d3436;
+    --ombre: rgba(0, 0, 0, 0.1);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--fond-gris);
+    color: var(--texte-sombre);
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* --- Header & Navigation --- */
+header {
+    background: linear-gradient(135deg, var(--vert-principal) 0%, #388e3c 100%);
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 4px 10px var(--ombre);
+}
+
+.top-nav {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+/* Style du Menu Déroulant (Dropdown) */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background: none;
+    border: none;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    letter-spacing: 1px;
+    padding: 10px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: var(--blanc);
+    min-width: 240px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    z-index: 100;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 5px;
+}
+
+.dropdown-content a {
+    color: var(--texte-sombre);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 0.85rem;
+    text-align: left;
+    transition: background 0.3s;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+    color: var(--vert-principal);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Bouton Connexion */
+.btn-login {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border: 2px solid white;
+    padding: 8px 20px;
+    border-radius: 5px;
+    transition: 0.3s ease;
+}
+
+.btn-login:hover {
+    background-color: white;
+    color: var(--vert-principal);
+}
+
+/* Logo et Titres */
+.header-content img {
+    width: 300px; /* Agrandissement du logo */
+    height: auto;
+    background-color: var(--blanc);
+    padding: 15px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+h1 {
+    font-size: 3rem;
+    margin: 10px 0;
+    letter-spacing: 3px;
+    font-weight: 700;
+}
+
+/* --- Contenu --- */
+.container {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+.card {
+    background: var(--blanc);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px var(--ombre);
+    margin-bottom: 30px;
+}
+
+h2 {
+    color: var(--vert-principal);
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+.missions-list {
+    list-style: none;
+    padding: 0;
+}
+
+.missions-list li {
+    padding: 10px 0 10px 30px;
+    position: relative;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.missions-list li::before {
+    content: "●";
+    color: var(--vert-principal);
+    position: absolute;
+    left: 0;
+}
+
+/* --- Pied de page --- */
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    background: #2d3436;
+    color: #bdc3c7;
+    margin-top: 60px;
+}
