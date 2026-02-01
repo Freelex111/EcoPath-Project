@@ -14,7 +14,7 @@ Ce projet est une plateforme web vitrine et utilitaire pour l'entreprise **EcoPa
 1.  **Prérequis** : Avoir un navigateur web moderne (Chrome, Firefox, Edge).
 2.  **Clonage du projet** :
     ```bash
-    git clone [https://github.com/votre-utilisateur/EcoPath-Project.git](https://github.com/votre-utilisateur/EcoPath-Project.git)
+    git clone https://github.com/votre-Freelex111/EcoPath-Project.git
     ```
 3.  **Structure** : Assurez-vous que les fichiers `index.html`, `style.css` et `logo.jpeg` sont dans le même dossier.
 
