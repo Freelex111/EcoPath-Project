@@ -1,3 +1,7 @@
+/* ----------------------------------------------------------- */
+/* PAGE : PRINCIPALE                           */
+/* ----------------------------------------------------------- */
+
 /* --- Variables et Reset --- */
 :root {
     --vert-principal: #2e7d32;
@@ -125,7 +129,7 @@ footer {
 }
 
 /* ----------------------------------------------------------- */
-/* PAGE : INSCRIPTION CLIENT                                   */
+/* PAGE : INSCRIPTION ET CONNEXION                             */
 /* ----------------------------------------------------------- */
 
 /* --- Variables de base --- */
@@ -273,21 +277,19 @@ body {
     text-decoration: underline;
 }
 
-/* On s'assure que le conteneur ne bloque pas la largeur */
+/* On ajuste l'image */
 .logo-area {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;           /* Prend toute la largeur disponible dans la carte */
-    margin-bottom: 20px;    /* Un peu plus d'espace sous le logo */
+    width: 100%;           
+    margin-bottom: 20px;    
 }
 
-/* On ajuste la taille de l'image */
 .logo-img {
-    width: 60%;            /* Le logo prendra 60% de la largeur de la carte */
-    max-width: 250px;      /* On limite pour qu'il ne devienne pas gigantesque */
-    height: auto;          /* Garde les proportions */
+    width: 60%;           
+    max-width: 250px;     
+    height: auto;          
     display: block;
-    object-fit: contain;   /* Force l'image à bien s'insérer sans se déformer */
-}
+    object-fit: contain;   
 
