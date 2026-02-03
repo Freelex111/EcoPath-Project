@@ -39,55 +39,6 @@ header {
     align-items: center;
 }
 
-/* Style du Menu Déroulant (Dropdown) */
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropbtn {
-    background: none;
-    border: none;
-    color: white;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    font-size: 0.9rem;
-    cursor: pointer;
-    letter-spacing: 1px;
-    padding: 10px;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    right: 0;
-    background-color: var(--blanc);
-    min-width: 240px;
-    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-    z-index: 100;
-    border-radius: 8px;
-    overflow: hidden;
-    margin-top: 5px;
-}
-
-.dropdown-content a {
-    color: var(--texte-sombre);
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    font-size: 0.85rem;
-    text-align: left;
-    transition: background 0.3s;
-}
-
-.dropdown-content a:hover {
-    background-color: #f1f1f1;
-    color: var(--vert-principal);
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
 
 /* Bouton Connexion */
 .btn-login {
@@ -172,3 +123,171 @@ footer {
     color: #bdc3c7;
     margin-top: 60px;
 }
+
+/* ----------------------------------------------------------- */
+/* PAGE : INSCRIPTION CLIENT                                   */
+/* ----------------------------------------------------------- */
+
+/* --- Variables de base --- */
+:root {
+    --vert-principal: #2e7d32;
+    --vert-hover: #1b5e20;
+    --fond-leger: #f9f9f9;
+    --texte-sombre: #333;
+    --blanc: #ffffff;
+}
+
+/* --- Style général --- */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--fond-leger);
+    color: var(--texte-sombre);
+}
+
+/* --- Barre de navigation (Bouton Accueil uniquement) --- */
+.simple-nav {
+    padding: 20px 5%;
+    background-color: var(--blanc);
+    border-bottom: 1px solid #eee;
+}
+
+.btn-back {
+    display: inline-block;
+    color: var(--vert-principal);
+    text-decoration: none;
+    font-weight: 600;
+    border: 2px solid var(--vert-principal);
+    padding: 8px 25px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.btn-back:hover {
+    background-color: var(--vert-principal);
+    color: var(--blanc);
+}
+
+/* --- Conteneur principal (Centrage) --- */
+.container-simple {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 85px); /* Prend toute la hauteur moins la nav */
+    padding: 20px;
+}
+
+/* --- La Carte d'Inscription --- */
+.card-inscription {
+    background: var(--blanc);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    width: 100%;
+    max-width: 480px;
+}
+
+.titre-inscription {
+    color: var(--vert-principal);
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    text-align: center;
+    font-weight: 700;
+}
+
+/* --- Formulaire --- */
+.form-inscription {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group label {
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: #555;
+}
+
+.form-group input {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+    border-color: var(--vert-principal);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.1);
+}
+
+.password-help {
+    font-size: 0.75rem;
+    color: #888;
+    margin-top: 2px;
+}
+
+/* --- Bouton d'envoi --- */
+.btn-submit {
+    background-color: var(--vert-principal);
+    color: var(--blanc);
+    border: none;
+    padding: 15px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: var(--vert-hover);
+    transform: translateY(-1px);
+}
+
+/* --- Pied de carte --- */
+.foot-card {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.foot-card a {
+    color: var(--vert-principal);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.foot-card a:hover {
+    text-decoration: underline;
+}
+
+/* On s'assure que le conteneur ne bloque pas la largeur */
+.logo-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;           /* Prend toute la largeur disponible dans la carte */
+    margin-bottom: 20px;    /* Un peu plus d'espace sous le logo */
+}
+
+/* On ajuste la taille de l'image */
+.logo-img {
+    width: 60%;            /* Le logo prendra 60% de la largeur de la carte */
+    max-width: 250px;      /* On limite pour qu'il ne devienne pas gigantesque */
+    height: auto;          /* Garde les proportions */
+    display: block;
+    object-fit: contain;   /* Force l'image à bien s'insérer sans se déformer */
+}
+
