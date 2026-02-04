@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoPath | BRANCHE 2</title>
+    <link rel="stylesheet" href="Style-profil.css">
+</head>
+<body>
+    <div class="edit-profile-card">
+        <h2>Modifier ma photo</h2>
+        
+        <div class="photo-preview-container">
+            <img src="https://via.placeholder.com/150" alt="Aperçu" id="image-preview">
+            
+            <label for="file-upload" class="custom-file-upload">
+                <i class="fas fa-camera"></i> Choisir une photo
+            </label>
+            <input type="file" id="file-upload" accept="image/*" onchange="previewImage(event)">
+        </div>
+
+        <form class="info-form">
+            <div class="input-group">
+                <label>Nom complet</label>
+                <input type="text" id="user-name" placeholder="Ex: Jean Dupont">
+            </div>
+            <div class="input-group">
+                <label>Bio / Description</label>
+                <textarea id="user-bio" placeholder="Parle-nous de toi..."></textarea>
+            </div>
+            
+            <div class="button-group">
+                <button type="button" class="btn-save" onclick="saveProfile()">Enregistrer</button>
+                <a href="positionnement.html" class="btn-cancel">Annuler</a>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // 1. Affiche l'image dès qu'on la sélectionne
+        function previewImage(event) {
+            const reader = new FileReader();
+            reader.onload = function() {
+                const output = document.getElementById('image-preview');
+                output.src = reader.result;
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        }
+
+        // 2. Sauvegarde dans le navigateur et retourne à la page précédente
+        function saveProfile() {
+            const photoData = document.getElementById('image-preview').src;
+            const nameData = document.getElementById('user-name').value;
+
+            // On enregistre les données
+            localStorage.setItem('userPhoto', photoData);
+            if(nameData) localStorage.setItem('userName', nameData);
+
+            // Retour à la page précédente
+            window.location.href = "positionnement.html"; 
+        }
+
+        // 3. Charger la photo actuelle au démarrage (si elle existe déjà)
+        window.onload = function() {
+            const savedPhoto = localStorage.getItem('userPhoto');
+            if (savedPhoto) {
+                document.getElementById('image-preview').src = savedPhoto;
+            }
+        };
+    </script>
+</body>
+</html>
