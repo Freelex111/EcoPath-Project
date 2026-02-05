@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoPath - Vérification</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Pour aligner les 6 cases OTP dans t design */
+        .otp-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 5px;
+            margin: 20px 0;
+        }
+        .otp-input {
+            width: 40px;
+            height: 50px;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background: #fff;
+        }
+        .otp-input:focus {
+            border-color: #2e7d32; /* Adapte à ton vert principal */
+            outline: none;
+            box-shadow: 0 0 5px rgba(46, 125, 50, 0.2);
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="simple-nav">
+        <a href="javascript:history.back()" class="btn-back">RETOUR</a>
+    </nav>
+   
+    <main class="container-simple">
+        <div class="card-inscription">
+            <div class="logo-area">
+                <img src="logo.jpeg" alt="Logo EcoPath" class="logo-img">
+            </div>
+
+            <h2 class="titre-inscription">Code d'authentification</h2>
+            <p style="text-align: center; font-size: 0.85rem; color: #666; margin-bottom: 20px;">
+                Un code a été envoyé à votre numéro/email.
+            </p>
+            
+            <form action="positionnement.html" method="GET" class="form-inscription">
+                
+                <div class="form-group">
+                    <label>Entrez le code à 6 chiffres</label>
+                    <div class="otp-container">
+                        <input type="text" class="otp-input" maxlength="1" inputmode="numeric" pattern="[0-9]" title="Chiffre uniquement" required>
+                        <input type="text" class="otp-input" maxlength="1" inputmode="numeric" pattern="[0-9]" title="Chiffre uniquement" required>
+                        <input type="text" class="otp-input" maxlength="1" inputmode="numeric" pattern="[0-9]" title="Chiffre uniquement" required>
+  			<input type="text" class="otp-input" maxlength="1" inputmode="numeric" pattern="[0-9]" title="Chiffre uniquement" required>
+  			<input type="text" class="otp-input" maxlength="1" inputmode="numeric" pattern="[0-9]" title="Chiffre uniquement" required>
+ 		        <input type="text" class="otp-input" maxlength="1" inputmode="numeric" pattern="[0-9]" title="Chiffre uniquement" required>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-submit">CONFIRMER</button>
+            </form>
+
+            <p class="foot-card">
+                Pas reçu ? <a href="#">Renvoyer le code</a>
+            </p>
+        </div>
+    </main>
+
+    <script>
+        const inputs = document.querySelectorAll('.otp-input');
+        inputs.forEach((input, index) => {
+            input.addEventListener('input', () => {
+                if (input.value.length === 1 && index < inputs.length - 1) {
+                    inputs[index + 1].focus();
+                }
+            });
+            input.addEventListener('keydown', (e) => {
+                if (e.key === 'Backspace' && input.value === '' && index > 0) {
+                    inputs[index - 1].focus();
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
