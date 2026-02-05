@@ -23,16 +23,23 @@
         <div class="card-inscription">
             <h2 class="titre-inscription">Inscription</h2>
             
-            <form action="#" method="POST" class="form-inscription">
+            <form action="positionnement.html" method="GET" class="form-inscription">
                 
                 <div class="form-group">
                     <label for="nom">Nom complet / Entreprise</label>
                     <input type="text" id="nom" name="nom" placeholder="Ex: Atangana Yves / Garden Design Sarl" required>
                 </div>
-
+  
                 <div class="form-group">
                     <label for="tel">Numéro de téléphone / Entreprise </label>
-                    <input type="tel" id="tel" name="tel" placeholder="Ex: 6 12 23 45 67" required>
+                    <input type="tel" 
+                           id="tel" 
+                           name="tel" 
+                           placeholder="Ex: 612234567" 
+                           pattern="[0-9]{9}" 
+                           inputmode="numeric"
+                           title="Le numéro doit contenir exactement 9 chiffres, sans lettres ni espaces." 
+                           required>
                 </div>
 
                 <div class="form-group">

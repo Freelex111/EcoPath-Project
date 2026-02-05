@@ -63,7 +63,7 @@ header {
 
 /* Logo et Titres */
 .header-content img {
-    width: 300px; /* Agrandissement du logo */
+    width: 300px; 
     height: auto;
     background-color: var(--blanc);
     padding: 15px;
@@ -178,7 +178,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: calc(100vh - 85px); /* Prend toute la hauteur moins la nav */
+    min-height: calc(100vh - 85px); 
     padding: 20px;
 }
 
@@ -241,22 +241,25 @@ body {
 }
 
 /* --- Bouton d'envoi --- */
+
 .btn-submit {
-    background-color: var(--vert-principal);
-    color: var(--blanc);
-    border: none;
+    background-color: var(--vert-principal); 
+    color: var(--blanc);                     
+    border: 2px solid var(--vert-principal); 
     padding: 15px;
     border-radius: 8px;
     font-weight: 700;
     font-size: 1rem;
     cursor: pointer;
     margin-top: 10px;
-    transition: background 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
 }
 
 .btn-submit:hover {
-    background-color: var(--vert-hover);
-    transform: translateY(-1px);
+    background-color: var(--blanc);      
+    color: var(--vert-principal);         
 }
 
 /* --- Pied de carte --- */
@@ -274,10 +277,10 @@ body {
 }
 
 .foot-card a:hover {
-    text-decoration: underline;
+    text-decoration: underline; 
 }
 
-/* On ajuste l'image */
+/* Ajuster l'image */
 .logo-area {
     display: flex;
     justify-content: center;
@@ -292,4 +295,4 @@ body {
     height: auto;          
     display: block;
     object-fit: contain;   
-
+}
