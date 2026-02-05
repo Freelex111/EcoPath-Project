@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoPath - Configuration de Projet</title>
+    
+    <link rel="stylesheet" href="style_questionnaire.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="simple-nav">
+        <a href="index.html" class="btn-back">ACCUEIL</a>
+    </nav>
+   
+    <main class="container-simple">
+        <div class="card-inscription">
+            <h2 class="titre-inscription">Votre Projet EcoPath</h2>
+            <p style="text-align: center; color: #666; font-size: 0.9rem; margin-bottom: 20px;">
+                Définissez vos besoins pour une estimation précise de l'impact et du coût.
+            </p>
+            
+            <form action="devis_achat.html" method="GET" id="devisForm">
+                
+                <h3>Spécifications du Produit</h3>
+
+                <div class="form-group">
+                    <label for="forme">Forme du pavé (Géométrie)</label>
+                    <select id="forme" name="forme" required>
+                        <option value="">-- Choisir un modèle --</option>
+                        <option value="H">Autobloquant en "H" (Haute résistance)</option>
+                        <option value="rect">Rectangulaire (Standard/Brique)</option>
+                        <option value="hex">Hexagonal (Design Nid d'abeille)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="epaisseur">Épaisseur (Usage prévu)</label>
+                    <select id="epaisseur" name="epaisseur" required>
+                        <option value="">-- Choisir l'épaisseur --</option>
+                        <option value="4">4 cm (Piétonnier / Terrasse / Jardin)</option>
+                        <option value="6">6 cm (Parking / Passage véhicules légers)</option>
+                        <option value="8">8 cm (Voies de circulation / Zones industrielles)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="surface">Surface totale estimée (m²)</label>
+                    <input type="number" id="surface" name="surface" placeholder="Ex: 75" min="1" required>
+                </div>
+
+                <h3>Livraison & Installation</h3>
+
+                <div class="form-group">
+                    <label for="ville">Ville de livraison</label>
+                    <select id="ville" name="ville" required>
+                        <option value="">-- Sélectionner la ville --</option>
+                        <option value="Douala">Douala</option>
+                        <option value="Yaounde">Yaoundé</option>
+                        <option value="Bafoussam">Bafoussam</option>
+                        <option value="autre">Autre ville (Cameroun)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="quartier">Quartier ou Lieu-dit précis</label>
+                    <input type="text" id="quartier" name="quartier" placeholder="Ex: Bonamoussadi, Akwa, etc." required>
+                </div>
+
+                <div class="form-group option-box" style="display: flex; align-items: center; gap: 12px;">
+                    <input type="checkbox" id="pose" name="besoin_pose" style="width: auto; margin-bottom: 0;">
+                    <label for="pose" style="margin-bottom: 0; font-weight: 400; font-size: 0.9rem; cursor: pointer;">
+                        Souhaitez-vous inclure la pose par les équipes d'EcoPath ?
+                    </label>
+                </div>
+
+                <button type="submit" class="btn-submit">
+                    GÉNÉRER MON ESTIMATION & CRÉER MON COMPTE
+                </button>
+            </form>
+
+            <p class="foot-card">
+                Données techniques traitées par l'unité industrielle <strong>EcoPath</strong>.
+            </p>
+        </div>
+    </main>
+
+    <script>
+        // Script pour vérifier la validité avant d'envoyer vers inscription.html
+        const form = document.getElementById('devisForm');
+        form.addEventListener('submit', function(e) {
+            if (!form.checkValidity()) {
+                e.preventDefault();
+                form.reportValidity();
+            }
+        });
+    </script>
+
+</body>
+</html>
