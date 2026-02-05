@@ -25,15 +25,27 @@
             <form action="positionnement.html" method="GET" class="form-inscription">
                 
                 <div class="form-group">
-                    <label for="identifier">Email ou Numéro de téléphone</label>
-                    <input type="text" id="identifier" name="identifier" placeholder="votre@email.com ou 6xxxxxxxx" required>
-                </div>
+                   <label for="identifier">Email ou Numéro de téléphone</label>
+                   <input type="text" 
+                          id="identifier" 
+                          name="identifier" 
+                          placeholder="votre@email.com ou 6xxxxxxxx" 
+                          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}|[0-9]{9}"
+                          title="Veuillez entrer un email valide ou un numéro à 9 chiffres"
+                          required>
+               </div>
 
                 <div class="form-group">
-                    <label for="password">Mot de passe</label>
-                    <input type="password" id="password" name="password" placeholder="********" required>
+                   <label for="password">Mot de passe</label>
+                   <input type="password" 
+                          id="password" 
+                          name="password" 
+                          placeholder="********" 
+                          minlength="8"
+                          required>
+                          <small style="color: #666; font-size: 0.8rem;">Minimum 8 caractères</small>
                 </div>
-
+               
                 <button type="submit" class="btn-submit">SE CONNECTER</button>
             </form>
 
