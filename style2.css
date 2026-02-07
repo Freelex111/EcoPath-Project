@@ -1,102 +1,58 @@
-/* 1. INDISPENSABLE : Supprimer les marges blanches du navigateur */
+/* =========================================
+   1. STRUCTURE DE BASE
+   ========================================= */
+html, 
 body {
     margin: 0;
     padding: 0;
-    /* On ajoute une marge en haut pour que le contenu ne soit pas caché sous la barre */
-    padding-top: 80px; 
-    font-family: Arial, sans-serif;
+    height: 100%;
+    width: 100%;
+    overflow: hidden; 
+    font-family: 'Segoe UI', Arial, sans-serif;
 }
 
-
-/* 2. Style de la barre de tâches corrigé */
+/* =========================================
+   2. BARRE DE NAVIGATION
+   ========================================= */
 .navbar {
     background-color: #2e7d32;
     height: 70px;
-    
-    /* FIXATION : Voici les lignes magiques */
     position: fixed;
     top: 0;
     left: 0;
-    right: 0; /* Étire la barre jusqu'au bord droit */
-    width: 100%;
-    z-index: 1000; /* Garde la barre au-dessus de tout le reste */
-
+    right: 0;
+    z-index: 9999;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
-    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+    box-sizing: border-box;
     box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-    
-    /* Important pour que le padding ne fasse pas déborder la barre */
-    box-sizing: border-box; 
 }
-
-/* --- Le reste de ton code pour l'icône reste identique --- */
 
 .logo {
-    font-size: 1.2rem;
-    font-weight: bold;
+    font-size: 2rem;
+    font-weight: 800;
+    color: white;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
-.profile-icon-small {
-    position: relative;
-    width: 45px; /* Un peu plus grand pour la barre de 70px */
-    height: 45px;
-    border-radius: 50%;
-    border: 2px solid white;
-    overflow: hidden;
-    transition: all 0.3s ease;
-    background-color: #fff;
-    cursor: pointer;
+.logo-link {
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+    transition-duration: 0.3s;
 }
 
-.profile-icon-small:hover {
-    transform: scale(1.1);
+.logo-link:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
 }
 
-.profile-icon-small img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.edit-dot {
-    position: absolute;
-    bottom: 2px;
-    right: 2px;
-    width: 10px;
-    height: 10px;
-    background-color: #ffc107;
-    border-radius: 50%;
-    border: 1.5px solid white;
-}
-
-.profile-icon-small:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-}
-
-.profile-icon-small img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-
-/* Petit point de notification ou indicateur au survol */
-.edit-dot {
-    position: absolute;
-    bottom: 2px;
-    right: 2px;
-    width: 8px;
-    height: 8px;
-    background-color: #ffc107; /* Jaune pour attirer l'oeil */
-    border-radius: 50%;
-    border: 1px solid white;
-}
 /* =========================================
-   1. ARRIÈRE-PLAN VIDÉO (Net & Plein Écran)
+   3. ARRIÈRE-PLAN IMAGE
    ========================================= */
 .animated-bg {
     position: fixed;
@@ -105,10 +61,18 @@ body {
     width: 100vw;
     height: 100vh;
     z-index: -1;
-    overflow: hidden;
 }
 
-/* Le voile sombre pour faire ressortir les boutons */
+.bg-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url('nature.png'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
 .animated-bg::after {
     content: "";
     position: absolute;
@@ -116,36 +80,27 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.3); /* Ajuste le 0.3 (plus ou moins sombre) */
+    background-color: rgba(0, 0, 0, 0.4);
     z-index: 1;
 }
 
-#bg-video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    transform: translate(-50%, -50%); /* Plus besoin de scale(1.1) car pas de flou */
-    object-fit: cover;
-    z-index: 0;
-}
 /* =========================================
-   2. MISE EN PAGE PRINCIPALE (Le conteneur)
+   4. CONTENEUR PRINCIPAL
    ========================================= */
 .main-container {
-    display: flex; /* Divise l'écran en deux */
+    display: flex;
     flex-direction: row;
-    height: 100vh; /* Prend toute la hauteur de l'écran */
-    padding-top: 70px; /* Espace pour ne pas être caché par le header */
+    height: calc(100vh - 70px);
+    margin-top: 70px;
+    position: relative;
+    z-index: 2;
+    align-items: center;
+    justify-content: center;
     box-sizing: border-box;
-    position: relative; /* Important pour centrer la flèche */
 }
 
 .split-section {
-    flex: 1; /* Chaque section prend 50% de la largeur */
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -153,25 +108,32 @@ body {
 }
 
 /* =========================================
-   3. DESIGN DES BOUTONS GÉANTS
+   5. BOUTONS D'ACTION
    ========================================= */
 .action-btn {
-    /* Effet de verre (Glassmorphism) */
-    background: rgba(255, 255, 255, 0.65);
+    background-color: rgba(255, 255, 255, 0.65);
     backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    
-    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgba(255, 255, 255, 0.8);
     border-radius: 20px;
-    padding: 50px 30px;
-    width: 100%;
-    max-width: 450px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 30px;
+    padding-right: 30px;
+    width: 90%;
+    max-width: 400px;
     cursor: pointer;
     text-align: center;
-    
-    /* Ombre douce pour le relief */
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+    transition-duration: 0.4s;
+    transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.action-btn:hover {
+    transform: translateY(-10px) scale(1.02);
+    background-color: rgba(255, 255, 255, 0.85);
+    border-color: #2e7d32;
 }
 
 .action-btn .icon {
@@ -181,10 +143,10 @@ body {
 }
 
 .action-btn h2 {
-    color: #1b5e20; /* Vert foncé */
+    color: #1b5e20;
     font-size: 1.8rem;
-    margin: 0 0 10px 0;
-    font-family: 'Segoe UI', sans-serif;
+    margin-top: 0;
+    margin-bottom: 10px;
 }
 
 .action-btn p {
@@ -193,130 +155,108 @@ body {
     line-height: 1.5;
 }
 
-/* Animation au survol de la souris */
-.action-btn:hover {
-    transform: translateY(-10px) scale(1.02); /* Monte légèrement */
-    background: rgba(255, 255, 255, 0.85);
-    box-shadow: 0 15px 40px rgba(46, 125, 50, 0.25);
-    border-color: #2e7d32;
-}
-
 /* =========================================
-   4. LA FLÈCHE VINTAGE (Séparateur)
+   6. LA FLÈCHE VINTAGE
    ========================================= */
 .vintage-arrow-separator {
     position: absolute;
     left: 50%;
-    top: 55%; /* Ajusté pour être bien centré verticalement */
-    transform: translate(-50%, -50%); /* Centre parfaitement */
-    height: 70%; /* Hauteur de la ligne */
+    top: 50%;
+    transform: translate(-50%, -50%);
+    height: 60%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    z-index: 10; /* Passe au-dessus des boutons */
-    pointer-events: none; /* Permet de cliquer à travers si besoin */
-}
-
-/* Les pointes de flèches (faites en CSS pur sans image) */
-.arrow-up, .arrow-down {
-    width: 0; 
-    height: 0; 
-    border-left: 12px solid transparent;
-    border-right: 12px solid transparent;
+    z-index: 10;
+    pointer-events: none;
 }
 
 .arrow-up {
-    border-bottom: 20px solid #2e7d32; /* Couleur de la flèche haut */
+    width: 0;
+    height: 0;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-bottom: 20px solid #2e7d32;
     margin-bottom: -1px;
 }
 
 .arrow-down {
-    border-top: 20px solid #2e7d32; /* Couleur de la flèche bas */
+    width: 0;
+    height: 0;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-top: 20px solid #2e7d32;
     margin-top: -1px;
 }
 
-/* La ligne verticale */
 .line {
     width: 3px;
-    flex: 1; /* Remplit tout l'espace disponible */
-    background: #2e7d32;
+    flex: 1;
+    background-color: #2e7d32;
     opacity: 0.8;
 }
 
-/* Le cercle central "Vintage" */
 .circle-ornament {
     width: 50px;
     height: 50px;
-    border: 3px solid #2e7d32;
+    border-width: 3px;
+    border-style: solid;
+    border-color: #2e7d32;
     border-radius: 50%;
-    background-color: #fdfaf6; /* Fond beige clair */
+    background-color: #fdfaf6;
     display: flex;
     justify-content: center;
     align-items: center;
-    
-    font-family: 'Georgia', serif; /* Police style ancien */
+    font-family: 'Georgia', serif;
     font-weight: bold;
     font-style: italic;
     font-size: 1.2rem;
     color: #2e7d32;
-    
-    margin: 15px 0;
-    box-shadow: 0 0 0 5px rgba(255,255,255,0.5); /* Petit halo autour */
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 /* =========================================
-   5. RESPONSIVE (Pour téléphone)
+   7. PROFIL UTILISATEUR
    ========================================= */
-@media (max-width: 768px) {
-    .main-container {
-        flex-direction: column; /* Empile les boutons l'un sur l'autre */
-        height: auto;
-        padding-bottom: 50px;
-    }
-
-    .vintage-arrow-separator {
-        display: none; /* On cache la flèche sur mobile car ça manque de place */
-    }
-    
-    .split-section {
-        width: 100%;
-        padding: 10px 20px;
-    }
-}
-/*probleme regler*/
-.navbar {
-    position: fixed;
-    top: 0;
-    z-index: 9999 !important; /* On le met tout en haut de la pile */
-    pointer-events: auto; /* On s'assure qu'il accepte les clics */
-}
-
-.nav-profile {
-    cursor: pointer;
-}
-
 .profile-link {
-    cursor: pointer;
     display: flex;
     align-items: center;
-    text-decoration: none; /* Enlève le soulignement du nom */
-}
-/*utilisateur*/
-.profile-link {
-    display: flex;
-    align-items: center; /* Aligne verticalement le nom et l'image */
     text-decoration: none;
-    gap: 12px; /* Espace entre le nom et l'image */
+    gap: 12px;
 }
 
 #user-name-display {
     color: white;
     font-weight: 500;
-    font-size: 0.95rem;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
 }
 
-/* On s'assure que l'image ne rétrécit pas si le nom est long */
 .profile-icon-small {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 2px solid white;
+    overflow: hidden;
+    background-color: #fff;
+    position: relative;
     flex-shrink: 0;
+}
+
+.profile-icon-small img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.edit-dot {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    width: 8px;
+    height: 8px;
+    background-color: #ffc107;
+    border-radius: 50%;
+    border: 1px solid white;
+}
+
 }
