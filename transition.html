@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoPath | Validation de dossier</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="page-transition">
+
+    <div class="transition-wrapper">
+        <div class="transition-card">
+            <div class="status-icon">✓</div>
+
+            <h1 id="titre-dynamique">Demande enregistrée !</h1>
+            
+            <div class="message-container">
+                <p id="message-dynamique">
+                    Votre demande a bien été transmise. Nos équipes vont étudier votre dossier avec attention. 
+                    Veuillez créer votre compte pour accéder à votre espace sécurisé.
+                </p>
+            </div>
+
+            <div class="next-steps">
+                <h3>Quelle est la suite ?</h3>
+                <ul>
+                    <li><span>1</span> Étude de votre dossier par nos experts.</li>
+                    <li><span>2</span> Envoi de votre devis ou planning de rendez-vous par mail.</li>
+                    <li><span>3</span> Suivi en temps réel sur votre espace EcoPath</li>
+                </ul>
+            </div>
+
+            <a href="inscription.html" class="btn-primary">CRÉER MON COMPTE</a>
+            
+            <p class="note-footer">Obligatoire pour le suivi de votre dossier et la sécurité de vos données.</p>
+        </div>
+    </div>
+
+    <script>
+        // Récupération de la source via l'URL (?from=...)
+        const params = new URLSearchParams(window.location.search);
+        const source = params.get('from');
+        
+        const titre = document.getElementById('titre-dynamique');
+        const message = document.getElementById('message-dynamique');
+
+        // Personnalisation selon le contexte
+        if (source === 'collecte') {
+            titre.innerText = "Dossier de collecte transmis !";
+            message.innerHTML = "Votre demande sera analysée par nos équipes logistiques. Nous vous reviendrons très prochainement pour fixer un rendez-vous via votre mail du site.";
+        } 
+        else if (source === 'questionnaire_achat') {
+            titre.innerText = "Projet de pavage  enregistré !";
+            message.innerHTML = "Nos experts vont étudier votre projet. Un <strong>devis personnalisé</strong> sera généré. La création d'unompte est exigée pour consulter votre offre.";
+        }
+    </script>
+</body>
+</html>
