@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>ECOPATH</title>
+   <link rel="stylesheet" href="Style3.css">
+</head>
+
+<body>
+   
+
+    <!-- BARRE VERTE -->
+    <header class="navbar">
+
+        <!-- Gauche : Nom entreprise -->
+        <div class="nav-left">
+            <span class="company-name">ECOPATH</span>
+        </div>
+
+        <!-- Centre : Profil utilisateur -->
+        <div class="nav-center">
+            <div class="user-profile">
+                <img src="https://via.placeholder.com/60" alt="Profil" class="user-icon" id="header-avatar">
+                <div class="user-name" id="user-name-display">Utilisateur</div>
+            </div>
+        </div>
+
+    </header>
+
+
+    
+<!-- LAYOUT PRINCIPAL -->
+    <div class="main-layout">
+        <!-- MENU GAUCHE -->
+        <div class="side-menu">
+            <button data-img="images/solde.jpeg">SOLDE 💰 </button>
+            <button data-img="images/Historique.jpeg">HISTORIQUE  🧮2</button>
+            <button data-img="images/Points_Collecte.jpeg">PC 📍3</button>
+            <button data-img="images/Paiement.png">PAIEMENT  💳4</button>
+        </div>
+
+      <!-- ZONE DE CONTENU -->
+<div class="content-area">
+
+    <!-- MESSAGE DE BIENVENUE CENTRÉ -->
+    <section class="welcome-message" id="welcome-message">
+        <h1>Bienvenue sur votre page Fournisseur !</h1>
+        <p>Ici, vous pouvez gérer vos produits, suivre vos commandes et consulter vos statistiques en toute simplicité.</p>
+    </section>
+
+    <!-- TABLETTE MASQUÉE AU DÉBUT -->
+    <div class="tablet-frame" id="tablet-frame" style="display: none;">
+        <img id="display-image" src="" alt="Image affichée">
+    </div>
+
+</div>
+
+    <!-- SCRIPT POUR CHANGER IMAGE -->
+    <script>
+        const buttons = document.querySelectorAll(".side-menu button");
+const displayImage = document.getElementById("display-image");
+const welcomeMessage = document.getElementById("welcome-message");
+const tabletFrame = document.getElementById("tablet-frame");
+
+buttons.forEach(button => {
+    button.addEventListener("click", () => {
+        const imgSrc = button.getAttribute("data-img"); 
+        displayImage.src = imgSrc;
+
+        // Cacher le message et afficher la tablette
+        welcomeMessage.style.display = "none";
+        tabletFrame.style.display = "block";
+    });
+});
+
+    </script>
+
+    <script>
+        // Charger photo et nom depuis la page profil
+        window.onload = function() {
+            const savedPhoto = localStorage.getItem('userPhoto'); // photo depuis la page profil
+            const savedName = localStorage.getItem('userName');   // nom depuis la page profil
+
+            const headerImg = document.getElementById('header-avatar');
+            const nameDisplay = document.getElementById('user-name-display');
+
+            if(savedPhoto) headerImg.src = savedPhoto;
+            if(savedName) nameDisplay.textContent = savedName;
+        };
+    </script>
+
+</body>
+</html>
