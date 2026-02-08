@@ -7,6 +7,7 @@
    <link rel="stylesheet" href="Style3.css">
 </head>
 
+
 <body>
    
 
@@ -40,6 +41,7 @@
             <button data-img="images/Points_Collecte.jpeg">PC 📍</button>
             <button data-img="images/Paiement.png">PAIEMENT  💳</button>
             <button id="btn-messagerie">MESSAGERIE 💬</button>
+    <button id="btn-deconnexion">DÉCONNEXION </button>
         </div>
 
       <!-- ZONE DE CONTENU -->
@@ -47,7 +49,7 @@
 
     <!-- MESSAGE DE BIENVENUE CENTRÉ -->
     <section class="welcome-message" id="welcome-message">
-        <h1>Bienvenue sur votre page Fournisseur !</h1>
+        <h1>Bienvenue sur votre espace Collecteur ECOPATH !</h1>
         <p>Ici, vous pouvez gérer vos produits, suivre vos commandes et consulter vos statistiques en toute simplicité.</p>
     </section>
 <!-- TABLETTE MASQUÉE AU DÉBUT -->
@@ -109,6 +111,13 @@ buttons.forEach(button => {
 document.getElementById("btn-messagerie").addEventListener("click", () => {
     window.location.href = "messagerie.html";
 });
+
+document.getElementById("btn-deconnexion").addEventListener("click", () => {
+    localStorage.removeItem('userPhoto');
+    localStorage.removeItem('userName');
+    window.location.href = "index.html"; // redirection vers page d'accueil
+});
+
 
 
 
