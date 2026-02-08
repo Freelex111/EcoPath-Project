@@ -34,7 +34,7 @@
             
             <form action="transition.html" method="GET" id="collecteForm">
                 <input type="hidden" name="from" value="collecte">
-                
+              
                 <h3>Type de Structure</h3>
                 <div class="form-group">
                     <label for="type_structure">Vous représentez :</label>
@@ -43,18 +43,18 @@
                         <option value="ecole">Une École / Université</option>
                         <option value="entreprise">Une Entreprise / Usine</option>
                         <option value="association">Une Association / ONG</option>
-                        <option value="particulier">Un Particulier (Point Relais)</option>
+                        <option value="particulier">Un Particulier </option>
                     </select>
                 </div>
 
                 <h3>Capacité de Stockage</h3>
                 <div class="form-group">
-                    <label for="frequence">Estimation du volume mensuel</label>
+                    <label for="frequence">Estimation du volume mensuel de stockage</label>
                     <select id="frequence" name="frequence" required>
                         <option value="">-- Sélectionner --</option>
                         <option value="petit">Moins de 100 kg / mois</option>
                         <option value="moyen">100 kg à 500 kg / mois</option>
-                        <option value="grand">Plus de 500 kg (Bac industriel)</option>
+                        <option value="grand">Plus de 500 kg </option>
                     </select>
                 </div>
 
@@ -80,7 +80,7 @@
                     <label for="bac">Besoin de bacs de tri EcoPath</label>
                </div>
 
-                <button type="submit" class="btn-submit">
+                <button type="submit" onclick="analyserEtRediriger()" class="btn-submit">
                     SOUMETTRE MA DEMANDE DE COLLECTE
                 </button>
             </form>
