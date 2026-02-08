@@ -12,10 +12,11 @@
 
     <!-- BARRE VERTE -->
     <header class="navbar">
+        
 
         <!-- Gauche : Nom entreprise -->
         <div class="nav-left">
-            <span class="company-name">ECOPATH</span>
+         <a class="company-name" href="index.html">ECOPATH</a>
         </div>
 
         <!-- Centre : Profil utilisateur -->
@@ -48,31 +49,66 @@
         <h1>Bienvenue sur votre page Fournisseur !</h1>
         <p>Ici, vous pouvez gérer vos produits, suivre vos commandes et consulter vos statistiques en toute simplicité.</p>
     </section>
-
-    <!-- TABLETTE MASQUÉE AU DÉBUT -->
-    <div class="tablet-frame" id="tablet-frame" style="display: none;">
-        <img id="display-image" src="" alt="Image affichée">
-    </div>
-
+<!-- TABLETTE MASQUÉE AU DÉBUT -->
+<div class="tablet-frame" id="tablet-frame" style="display: none; position: relative;">
+    <!-- Overlay noir ECOPATH -->
+   <div class="tablet-overlay" id="tablet-overlay" style="display: none;">
+    <div class="door-left"></div>
+    <div class="door-right"></div>
+    <div class="tablet-overlay-text">ECOPATH</div>
+</div>
+    <!-- Image à afficher après animation -->
+    <img id="display-image" src="" alt="Image affichée">
 </div>
 
-    <!-- SCRIPT POUR CHANGER IMAGE -->
-    <script>
-        const buttons = document.querySelectorAll(".side-menu button");
+
+   <!-- SCRIPT POUR L’ANIMATION DES PORTES ET TABLETTE -->
+<script>
+  const buttons = document.querySelectorAll(".side-menu button");
 const displayImage = document.getElementById("display-image");
-const welcomeMessage = document.getElementById("welcome-message");
+const tabletOverlay = document.getElementById("tablet-overlay");
 const tabletFrame = document.getElementById("tablet-frame");
+const welcomeMessage = document.getElementById("welcome-message");
 
 buttons.forEach(button => {
     button.addEventListener("click", () => {
         const imgSrc = button.getAttribute("data-img"); 
         displayImage.src = imgSrc;
 
-        // Cacher le message et afficher la tablette
-        welcomeMessage.style.display = "none";
-        tabletFrame.style.display = "block";
+        // 1️⃣ Cacher le message de bienvenue si c'est le premier clic
+        if (welcomeMessage.style.display !== "none") {
+            welcomeMessage.style.display = "none";
+        }
+
+        // 2️⃣ Afficher la tablette si cachée
+        if (tabletFrame.style.display !== "flex") {
+            tabletFrame.style.display = "flex";
+        }
+
+        // 3️⃣ Réinitialiser overlay pour pouvoir relancer l’animation
+        tabletOverlay.style.display = "flex";
+        tabletOverlay.classList.remove("open");
+
+        displayImage.classList.remove("show"); // cacher l’image avant animation
+
+        // 4️⃣ Lancer animation portes
+        setTimeout(() => {
+            tabletOverlay.classList.add("open");
+        }, 50);
+
+        // 5️⃣ Afficher l’image après l’ouverture
+        setTimeout(() => {
+            displayImage.classList.add("show");
+            tabletOverlay.style.display = "none"; // masquer overlay
+        }, 1100); // 1,1s = durée de l’animation portes
     });
 });
+
+
+
+
+</script>
+
 
     </script>
 
