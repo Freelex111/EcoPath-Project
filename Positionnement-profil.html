@@ -29,10 +29,10 @@
                 <textarea id="user-bio" placeholder="Parle-nous de toi..."></textarea>
             </div>
             
-            <div class="button-group">
-                <button type="button" class="btn-save" onclick="saveProfile()">Enregistrer</button>
-                <a href="positionnement.html" class="btn-cancel">Annuler</a>
-            </div>
+           <div class="button-group">
+               <button type="button" class="btn-save" onclick="saveProfile()">Enregistrer</button>
+               <button type="button" class="btn-cancel" onclick="history.back()">Annuler</button>
+           </div>
         </form>
     </div>
 
@@ -49,15 +49,16 @@
 
         // 2. Sauvegarde dans le navigateur et retourne à la page précédente
         function saveProfile() {
-            const photoData = document.getElementById('image-preview').src;
-            const nameData = document.getElementById('user-name').value;
+          const photoData = document.getElementById('image-preview').src;
+          const nameData = document.getElementById('user-name').value;
 
-            // On enregistre les données
-            localStorage.setItem('userPhoto', photoData);
-            if(nameData) localStorage.setItem('userName', nameData);
-
-            // Retour à la page précédente
-            window.location.href = "positionnement.html"; 
+        // 1. On enregistre les données dans le navigateur
+          localStorage.setItem('userPhoto', photoData);
+            if(nameData) {
+               localStorage.setItem('userName', nameData);
+           }
+        // 2. On ramène l'utilisateur à la page précédente immédiatement
+               history.back(); 
         }
 
         // 3. Charger la photo actuelle au démarrage (si elle existe déjà)
