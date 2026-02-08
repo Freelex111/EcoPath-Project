@@ -4,26 +4,31 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>ECOPATH - Client</title>
-   <link rel="stylesheet" href="Style3.css">
+   <link rel="stylesheet" href="dashboard.css">
 </head>
 
 <body>
 
-    <!-- BARRE VERTE -->
     <header class="navbar">
-        <!-- Gauche : Nom entreprise -->
-        <div class="nav-left">
-            <a class="company-name" href="index.html">ECOPATH</a>
-        </div>
+    <div class="nav-left">
+        <a class="company-name" href="index.html">ECOPATH</a>
+    </div>
 
-        <!-- Centre : Profil utilisateur -->
-        <div class="nav-center">
+    <nav class="menu-dashboards">
+        <a href="fournir.html" class="nav-item">Espace Collecteur</a>
+        <a href="client.html" class="nav-item active">Espace Client</a>
+        <a href="institution.html" class="nav-item">Espace Institution</a>
+    </nav>
+
+    <div class="nav-right">
+        <a href="Positionnement-profil.html" class="profile-link-wrapper">
             <div class="user-profile">
+                <span class="user-name" id="user-name-display">Utilisateur</span>
                 <img src="https://via.placeholder.com/60" alt="Profil" class="user-icon" id="header-avatar">
-                <div class="user-name" id="user-name-display">Utilisateur</div>
             </div>
-        </div>
-    </header>
+        </a>
+    </div>
+</header>
 
     <!-- LAYOUT PRINCIPAL -->
     <div class="main-layout">
@@ -43,7 +48,7 @@
 
             <!-- MESSAGE DE BIENVENUE CENTRÉ -->
             <section class="welcome-message" id="welcome-message">
-                <h1>Bienvenue sur votre espace Client ECOPATH !</h1>
+                <h2>Bienvenue sur votre espace Client ECOPATH !</h2>
                 <p>Suivez vos commandes de pavés écologiques, lancez de nouveaux projets et consultez vos factures en toute simplicité.</p>
             </section>
 
