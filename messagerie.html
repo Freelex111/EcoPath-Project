@@ -28,27 +28,23 @@ window.addEventListener("DOMContentLoaded", function () {
 
 <body>
 
-    <!-- ===== NAVBAR ===== -->
-    <header class="navbar">
-    
-    <!-- Gauche -->
+   <header class="navbar">
     <div class="nav-left">
         <a class="company-name" href="index.html">ECOPATH</a>
     </div>
 
-    <!-- Centre -->
     <div class="nav-center">
+    <a href="Positionnement-profil.html" class="profile-link-wrapper">
         <div class="user-profile">
+            <span class="user-name" id="user-name-display">Utilisateur</span>
             <img src="images/default-avatar.png" class="user-icon" id="header-avatar">
-            <div class="user-name" id="user-name-display">Utilisateur</div>
         </div>
-    </div>
+    </a>
+</div>
 
-    <!-- Droite -->
     <div class="nav-right">
-        <div class="nav-title">MESSAGERIE</div>
+        <button onclick="history.back()" class="btn-retour">RETOUR</button>
     </div>
-
 </header>
 
     <!-- ===== ZONE CHAT ===== -->
