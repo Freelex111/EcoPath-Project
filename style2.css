@@ -71,7 +71,16 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+
+    filter: brightness(1.3); /* augmente la luminosité de 50% */
+    transition: filter 0.3s ease; /* si tu veux un effet au survol */
 }
+
+.bg-image:hover {
+    filter: brightness(2); /* brille plus quand la souris passe */
+}
+
+
 
 .animated-bg::after {
     content: "";
@@ -259,4 +268,3 @@ body {
     border: 1px solid white;
 }
 
-}
