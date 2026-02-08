@@ -39,6 +39,7 @@
             <button data-img="images/Historique.jpeg">HISTORIQUE  🧮</button>
             <button data-img="images/Points_Collecte.jpeg">PC 📍</button>
             <button data-img="images/Paiement.png">PAIEMENT  💳</button>
+            <button id="btn-messagerie">MESSAGERIE 💬</button>
         </div>
 
       <!-- ZONE DE CONTENU -->
@@ -102,6 +103,11 @@ buttons.forEach(button => {
             tabletOverlay.style.display = "none"; // masquer overlay
         }, 1100); // 1,1s = durée de l’animation portes
     });
+});
+ 
+ // Bouton Messagerie (ouvre une nouvelle page)
+document.getElementById("btn-messagerie").addEventListener("click", () => {
+    window.location.href = "messagerie.html";
 });
 
 
