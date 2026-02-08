@@ -5,44 +5,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EcoPath | Recyclage & Pavés Écologiques</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
 </head>
 <body>
 
-    <header>
-    <nav class="top-nav">
-        <a href="inscription.html" class="btn-login">S'INSCRIRE</a>
-        <a href="connexion.html" class="btn-login">CONNEXION</a>
-    </nav>
+   <nav class="top-nav">
+    <a href="index.html" class="nav-logo">
+        <img src="logo.jpeg" alt="EcoPath Logo">
+        <span>ECOPATH</span>
+    </a>
 
-    <div class="header-content">
+    <div class="main-menu">
+        <a href="questionnaire_achat.html" class="nav-link">ACHETER NOS PAVÉS</a>
+        <a href="collecte.html" class="nav-link">POINT DE COLLECTE</a>
+        <a href="index.html#impact" class="nav-link">NOTRE IMPACT</a>
+    </div>
+    
+    <div class="auth-buttons">
+        <a href="connexion.html" class="btn-login">MON ESPACE ECOPATH</a>
+    </div>
+</nav>
+
+    <header class="hero-banner">
         <img src="logo.jpeg" alt="Logo EcoPath">
         <h1>EcoPath</h1>
-        <p>L'industrie au service d'un Cameroun plus propre et urbanisé </p>
-    </div>
-</header>
+        <p>L'industrie au service d'un Cameroun plus propre et urbanisé</p>
+    </header>
 
     <main class="container">
         <section class="card">
             <h2>Présentation de l'entreprise</h2>
-            <p>
+            <p class="intro-text">
                 Lancée en 2015, l’entreprise <strong>EcoPath</strong> est le fruit de la vision commune d’un groupe de jeunes ingénieurs camerounais. 
-                Récemment diplômés, ils ont décidé de réaliser leur rêve : rendre leur pays plus propre. 
-                Pour cela, ils ont opté pour une solution de recyclage industrielle innovante : la production de pavés écologiques.
+                Récemment diplômés, ils ont décidé de réaliser leur rêve : rendre leur pays plus propre en transformant les déchets plastiques en infrastructures durables.
             </p>
         </section>
 
         <section class="card">
             <h2>Nos Missions</h2>
-            <p>EcoPath s'est fixé des objectifs ambitieux pour transformer durablement notre environnement :</p>
             <ul class="missions-list">
                 <li>Utilisation de matières premières écoresponsables.</li>
-                <li>Diminution de l’empreinte carbone à chaque étape du processus.</li>
-                <li>Création d’emplois locaux.</li>
-                <li>Engagement communautaire à travers une plateforme numérique dédiée.</li>
-                <li>Amélioration de la durabilité, de la qualité et de l’esthétique des routes.</li>
+                <li>Diminution de l’empreinte carbone à chaque étape.</li>
+                <li>Création d’emplois locaux au Cameroun.</li>
+                <li>Engagement communautaire via notre plateforme.</li>
+                <li>Routes plus durables et esthétiques.</li>
             </ul>
         </section>
 
+        <section id="impact" class="card card-impact">
+            <h2 class="title-center">Notre Impact Réel</h2>
+            <div class="impact-grid">
+                <div class="impact-item">
+                    <h3>150 T</h3>
+                    <p>Plastique recyclé</p>
+                </div>
+                <div class="impact-item">
+                    <h3>25</h3>
+                    <p>Emplois créés</p>
+                </div>
+                <div class="impact-item">
+                    <h3>12</h3>
+                    <p>Points de collecte</p>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer>

@@ -5,24 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EcoPath - Partenariat Collecte</title>
     
-    <link rel="stylesheet" href="style_questionnaire.css">
+    <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <nav class="simple-nav">
-        <a href="index.html" class="btn-back">ACCUEIL</a>
-    </nav>
-   
+     <nav class="top-nav">
+    <a href="index.html" class="nav-logo active">
+        <img src="logo.jpeg" alt="EcoPath Logo">
+        <span>EcoPath</span>
+    </a>
+
+    <div class="main-menu">
+        <a href="questionnaire_achat.html" class="nav-link">ACHETER NOS PAVÉS</a>
+        <a href="collecte.html" class="nav-link active">POINT DE COLLECTE</a>
+        <a href="index.html#impact" class="nav-link">NOTRE IMPACT</a>
+    </div>
+    
+    <div class="auth-buttons">
+        <a href="connexion.html" class="btn-login">MON ESPACE ECOPATH</a>
+    </div>
+</nav>
+
     <main class="container-simple">
         <div class="card-inscription">
-            <h2 class="titre-inscription">Devenir Point de Collecte</h2>
-            <p style="text-align: center; color: #666; font-size: 0.9rem; margin-bottom: 20px;">
-                Rejoignez le réseau EcoPath et aidez-nous à transformer les déchets de votre zone.
-            </p>
+            <h1 class="titre-inscription">DEVENIR UN POINT DE COLLECTE</h1>
+            <p class="sous-titre-inscription">Rejoignez le réseau EcoPath et aidez-nous à transformer les déchets de votre zone.</p>
             
-            <form action="inscription.html" method="GET" id="collecteForm">
-                
+            <form action="transition.html" method="GET" id="collecteForm">
+                <input type="hidden" name="from" value="collecte">
+              
                 <h3>Type de Structure</h3>
                 <div class="form-group">
                     <label for="type_structure">Vous représentez :</label>
@@ -31,18 +43,18 @@
                         <option value="ecole">Une École / Université</option>
                         <option value="entreprise">Une Entreprise / Usine</option>
                         <option value="association">Une Association / ONG</option>
-                        <option value="particulier">Un Particulier (Point Relais)</option>
+                        <option value="particulier">Un Particulier </option>
                     </select>
                 </div>
 
                 <h3>Capacité de Stockage</h3>
                 <div class="form-group">
-                    <label for="frequence">Estimation du volume mensuel</label>
+                    <label for="frequence">Estimation du volume mensuel de stockage</label>
                     <select id="frequence" name="frequence" required>
                         <option value="">-- Sélectionner --</option>
                         <option value="petit">Moins de 100 kg / mois</option>
                         <option value="moyen">100 kg à 500 kg / mois</option>
-                        <option value="grand">Plus de 500 kg (Bac industriel)</option>
+                        <option value="grand">Plus de 500 kg </option>
                     </select>
                 </div>
 
@@ -63,15 +75,13 @@
                     <input type="text" id="adresse_exacte" name="adresse_exacte" placeholder="Ex: Deido, face école publique" required>
                 </div>
 
-                <div class="form-group option-box" style="display: flex; align-items: center; gap: 12px;">
-                    <input type="checkbox" id="bac" name="besoin_bac" style="width: auto; margin-bottom: 0;" checked>
-                    <label for="bac" style="margin-bottom: 0; font-weight: 400; font-size: 0.9rem; cursor: pointer;">
-                        Besoin de bacs de tri EcoPath
-                    </label>
-                </div>
+                <div class="option-box">
+                    <input type="checkbox" id="bac" name="besoin_bac" checked>
+                    <label for="bac">Besoin de bacs de tri EcoPath</label>
+               </div>
 
-                <button type="submit" class="btn-submit">
-                    PROPOSER MON POINT DE COLLECTE & CRÉER MON COMPTE
+                <button type="submit" onclick="analyserEtRediriger()" class="btn-submit">
+                    SOUMETTRE MA DEMANDE DE COLLECTE
                 </button>
             </form>
         </div>

@@ -1,32 +1,32 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-       <meta charset="UTF-8">
-       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       <title>EcoPath | BRANCHE 2</title>
-       <link rel="stylesheet" href="style2.css">
-    </head>
-  <body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoPath | Choix de Branche</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+
     <div class="animated-bg">
-        <video autoplay muted loop playsinline id="bg-video">
-            <source src="Naturemp4.mp4" type="video/mp4">
-            <div class="fallback-gradient"></div>
-        </video>
+        <div class="bg-image"></div>
     </div>
 
-   <header class="navbar">
-    <div class="logo">EcoPath</div>
-    
-    <div class="nav-profile" style="position: relative; z-index: 2000;">
-        <a href="Positionnement-profil.html" class="profile-link">
-            <span id="user-name-display">Utilisateur</span>
-            <div class="profile-icon-small">
-                <img src="https://via.placeholder.com/40" alt="Profil" id="header-avatar">
-                <div class="edit-dot"></div>
-            </div>
-        </a>
-    </div>
-</header>
+    <header class="navbar">
+        <div class="logo">
+            <a href="index.html" class="logo-link">EcoPath</a>
+        </div>
+        
+        <div class="nav-profile">
+            <a href="Positionnement-profil.html" class="profile-link">
+                <span id="user-name-display">Utilisateur</span>
+                <div class="profile-icon-small">
+                    <img src="https://via.placeholder.com/40" alt="Profil" id="header-avatar">
+                    <div class="edit-dot"></div>
+                </div>
+            </a>
+        </div>
+    </header>
 
     <main class="main-container">
         <div class="split-section provider">
@@ -53,34 +53,26 @@
             </button>
         </div>
     </main>
-   
 
-  </body>
-  <script>
-    window.onload = function() {
-        const savedPhoto = localStorage.getItem('userPhoto');
-        const headerImg = document.querySelector('.profile-icon-small img');
-        if (savedPhoto && headerImg) {
-            headerImg.src = savedPhoto;
-        }
-    };
-    window.onload = function() {
-    // 1. Récupérer la photo
-    const savedPhoto = localStorage.getItem('userPhoto');
-    const headerImg = document.getElementById('header-avatar');
-    if (savedPhoto && headerImg) {
-        headerImg.src = savedPhoto;
-    }
+    <script>
+        // FUSION DES FONCTIONS ONLOAD (Évite les conflits)
+        window.onload = function() {
+            // 1. Récupération et affichage de la photo de profil
+            const savedPhoto = localStorage.getItem('userPhoto');
+            const headerImg = document.getElementById('header-avatar');
+            if (savedPhoto && headerImg) {
+                headerImg.src = savedPhoto;
+            }
 
-    // 2. Récupérer le nom
-    const savedName = localStorage.getItem('userName');
-    const nameDisplay = document.getElementById('user-name-display');
-    if (savedName && nameDisplay) {
-        nameDisplay.textContent = savedName;
-    }
-};
-    
-</script>
+            // 2. Récupération et affichage du nom d'utilisateur
+            const savedName = localStorage.getItem('userName');
+            const nameDisplay = document.getElementById('user-name-display');
+            if (savedName && nameDisplay) {
+                nameDisplay.textContent = savedName;
+            }
+        };
+    </script>
+</body>
 </html>
 
     
