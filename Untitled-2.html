@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produits ECOPATH</title>
+    <link rel="stylesheet" href="produits.css">
+</head>
+
+<body>
+
+   <div class="animated-bg">
+        <div class="bg-image"></div>
+    </div>
+
+    <header class="navbar">
+        <div class="logo">
+            <a href="../index.html" class="logo-link">EcoPath</a>
+        </div>
+        
+        <div class="nav-profile">
+            <a href="Positionnement-profil.html" class="profile-link">
+                <span id="user-name-display">Utilisateur</span>
+                <div class="profile-icon-small">
+                    <img src="https://via.placeholder.com/40" alt="Profil" id="header-avatar">
+                    <div class="edit-dot"></div>
+                </div>
+            </a>
+        </div>
+    </header>
+
+<section class="hero">
+    <h2>Nos Produits Recyclés</h2>
+    <p>Des solutions durables fabriquées à partir de plastiques recyclés ♻️</p>
+</section>
+
+<section class="products">
+
+    <div class="card">
+        <img src="images/paves.jpg" alt="Pavés écologiques">
+        <h3>Pavés Écologiques</h3>
+        <p>Ultra résistants pour routes, trottoirs et cours.</p>
+        <button>Commander</button>
+    </div>
+
+    <div class="card">
+        <img src="images/poubelle.jpg" alt="Poubelles recyclées">
+        <h3>Poubelles Recyclées</h3>
+        <p>Solides, durables et parfaites pour collectivités.</p>
+        <button>Commander</button>
+    </div>
+
+    <div class="card">
+        <img src="images/bacs.jpg" alt="Bacs de stockage">
+        <h3>Bacs de Stockage</h3>
+        <p>Idéals pour déchets et stockage industriel.</p>
+        <button>Commander</button>
+    </div>
+
+    <div class="card">
+        <img src="images/bouteilles.jpg" alt="Bouteilles recyclées">
+        <h3>Bouteilles Recyclées</h3>
+        <p>Fabrication responsable à partir de plastique recyclé.</p>
+        <button>Commander</button>
+    </div>
+
+    <div class="card">
+        <img src="images/bidons.jpg" alt="Bidons recyclés">
+        <h3>Bidons Recyclés</h3>
+        <p>Utilisation industrielle et domestique.</p>
+        <button>Commander</button>
+    </div>
+
+</section>
+
+<footer>
+    <p>© 2026 ECOPAD Cameroun | Recyclage & Développement Durable</p>
+</footer>
+
+
+   <script>
+        // FUSION DES FONCTIONS ONLOAD (Évite les conflits)
+        window.onload = function() {
+            // 1. Récupération et affichage de la photo de profil
+            const savedPhoto = localStorage.getItem('userPhoto');
+            const headerImg = document.getElementById('header-avatar');
+            if (savedPhoto && headerImg) {
+                headerImg.src = savedPhoto;
+            }
+
+            // 2. Récupération et affichage du nom d'utilisateur
+            const savedName = localStorage.getItem('userName');
+            const nameDisplay = document.getElementById('user-name-display');
+            if (savedName && nameDisplay) {
+                nameDisplay.textContent = savedName;
+            }
+        };
+    </script>
+</body>
+</html>
